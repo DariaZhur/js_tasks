@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task2</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="some text">
+    <button id="btn">check</button>
+    <p></p>
+
+<script>
+
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', function(){
+        let text = document.getElementById('input').value;
+        let maxSub = '';
+        let currentSub = '';
+
+        for (let i = 0; i < text.length; i++){
+            let char = text.charAt(i);
+            let pos = currentSub.indexOf(char);
+            if(pos !== -1){
+                currentSub = currentSub.substr(pos + 1);
+            }
+            currentSub += char;
+            if(currentSub.length > maxSub.length){
+                maxSub = currentSub;
+            }
+        }
+        document.getElementsByTagName('p')[0].innerHTML = maxSub;
+    });
+
+</script>
+    
+</body>
+</html>
